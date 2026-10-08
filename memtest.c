@@ -15,7 +15,7 @@
 #endif
 
 #define MEMSIZE 4096
-#define HEADERSIZE 8
+#define HEADERSIZE 24   // matches sizeof(metadata) in mymalloc.c
 #define OBJECTS 64
 #define OBJSIZE (MEMSIZE / OBJECTS - HEADERSIZE)
 

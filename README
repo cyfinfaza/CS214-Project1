@@ -1,0 +1,13 @@
+Cy Westbrook - cww45
+
+Test Plan
+    Besides `memtest` and `memgrind` I have an additional program called `test`.
+    `test` contains test functions for each of the requirements mentioned in the project.
+    You can see a description of each test in the comment above the function.
+    In order to run these tests, you can run `./test <name>` after running `make all`.
+    But if you just want to run all the tests, you can run `make check` and it will run them all for you.
+
+Design notes
+    - The header is 24 bytes because I was going quickly and not fully thinking, but the program works fine so I left it as is since it makes the code very explicit and it doesn't say I'm not allowed to. `memtest` and `test` account for this.
+    - The program always does a linear traversal of the heap to find free space.
+    - It is possible to have 0 byte chunks if the chunk it "bites" is only one header size larger than the requested amount. This has no effect really since it will coalesce with the next chunk if it is free in the next malloc that needs it.
